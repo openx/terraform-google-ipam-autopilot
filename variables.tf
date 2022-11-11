@@ -38,3 +38,8 @@ variable "provider_version" {
 variable "disable_database_migration" {
   default = "FALSE"
 }
+
+variable "ipam_container_image" {
+  default     = "us-docker.pkg.dev/ox-ipam-autopilot/ipam-autopilot/ipam-autopilot:latest"
+  description = "Override container image used by Cloud Run"
+}

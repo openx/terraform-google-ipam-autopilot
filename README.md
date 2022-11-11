@@ -13,7 +13,7 @@ The following GCP services are used as part of the deployment, and might cause c
   * [Secret Manager](https://cloud.google.com/secret-manager)
   * [Cloud Asset Inventory](https://cloud.google.com/asset-inventory)
 
-Optionally [Artifact Registry](https://cloud.google.com/artifact-registry) can be configured to host container image used by [Cloud Run](https://cloud.google.com/run) service.
+Optionally [Artifact Registry](https://cloud.google.com/artifact-registry) can be configured to host [container image](https://github.com/openx/gcp-ipam-autopilot) used by [Cloud Run](https://cloud.google.com/run) service.
 
 You can also disable the automatic database migration using `DISABLE_DATABASE_MIGRATION` if you prefer to do the database migration manually. Therefore you have to set the value to `TRUE`. Or in Terraform use the `disable_database_migration` variable.
 
@@ -27,4 +27,5 @@ The terraform module takes the following variables, you can either set them via 
 | region                     	| us-central1    	| GCP region that should contain the resources.                                                                                                              	|
 | artifact_registry_location 	| us          	| Location for the Artifact Registry location, containing the Docker container image for the IPAM Autopilot backend.                                         	|
 | container_version          	| 2               	| Version of the container, since the container is build by the infrastructure automation, you can use this variable to trigger a new container image build. 	|
-| disable_database_migration           	| FALSE           	| Whether the CloudRun service should automatically migrate the databse |
+| ipam_container_image           	| us-docker.pkg.dev/ox-ipam-autopilot/ipam-autopilot/ipam-autopilot:latest           	| Specify alternative container image to be used by Cloud Run service |
+| disable_database_migration           	| FALSE           	| Whether the CloudRun service should automatically migrate the database |

@@ -85,7 +85,7 @@ resource "google_cloud_run_service" "default" {
     spec {
       service_account_name = google_service_account.autopilot.email
       containers {
-        image = "${var.artifact_registry_location}-docker.pkg.dev/${var.project_id}/ipam-autopilot/ipam-autopilot:${var.container_version}"
+        image = var.ipam_container_image
         ports {
           name           = "http1"
           container_port = 8080
