@@ -32,7 +32,12 @@ variable "project_id" {
 }
 
 variable "disable_database_migration" {
-  default = "FALSE"
+  default = false
+}
+
+variable "disable_org_level_cai_permissions" {
+  description = "If true, skip permissions grant on the org level (roles/cloudasset.viewer)"
+  default     = false
 }
 
 variable "ipam_container_image" {

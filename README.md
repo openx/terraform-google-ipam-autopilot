@@ -28,4 +28,5 @@ The terraform module takes the following variables, you can either set them via 
 | artifact_registry_location 	| us          	| Location for the Artifact Registry location, containing the Docker container image for the IPAM Autopilot backend.                                         	|
 | container_version          	| 2               	| Version of the container, since the container is build by the infrastructure automation, you can use this variable to trigger a new container image build. 	|
 | ipam_container_image           	| us-docker.pkg.dev/ox-ipam-autopilot/ipam-autopilot/ipam-autopilot:latest           	| Specify alternative container image to be used by Cloud Run service |
-| disable_database_migration           	| FALSE           	| Whether the CloudRun service should automatically migrate the database |
+| disable_database_migration           	| false           	| Whether the CloudRun service should automatically migrate the database |
+| disable_org_level_cai_permissions    	| false           	| If service account running terraform lacks permissions on the org level it might be desirable not to attempt to grant CAI permissions on organizational level|

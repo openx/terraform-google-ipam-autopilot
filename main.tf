@@ -63,7 +63,7 @@ resource "google_project_iam_member" "token_creator" {
 }
 
 resource "google_organization_iam_member" "cai_viewer" {
-  count  = var.organization_id == "" ? 0 : 1
+  count  = (var.organization_id != "") && (var.disable_org_level_cai_permissions == false) ? 1 : 0
   org_id = var.organization_id
   role   = "roles/cloudasset.viewer"
   member = "serviceAccount:${google_service_account.autopilot.email}"
@@ -108,7 +108,7 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "DISABLE_DATABASE_MIGRATION"
-          value = var.disable_database_migration
+          value = tostring(var.disable_database_migration)
         }
         env {
           name = "DATABASE_PASSWORD"

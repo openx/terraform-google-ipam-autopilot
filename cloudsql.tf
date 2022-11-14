@@ -54,6 +54,9 @@ resource "google_sql_database_instance" "instance" {
   }
 
   deletion_protection = "false"
+  depends_on = [
+    google_project_service.project,
+  ]
 }
 
 resource "google_sql_database" "database" {
