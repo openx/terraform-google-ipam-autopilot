@@ -31,10 +31,6 @@ variable "container_version" {
 variable "project_id" {
 }
 
-variable "provider_version" {
-  default = "0.4.0"
-}
-
 variable "disable_database_migration" {
   default = "FALSE"
 }
