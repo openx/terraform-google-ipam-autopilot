@@ -26,7 +26,7 @@ variable "artifact_registry_location" {
 
 variable "artifact_registry_writers" {
   description = "List of Service Accounts allowed to push container images to Artifact Registry"
-  default = []
+  default     = []
 }
 variable "container_version" {
   default = "2"

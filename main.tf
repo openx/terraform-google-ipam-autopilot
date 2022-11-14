@@ -43,12 +43,12 @@ resource "google_artifact_registry_repository" "ipam" {
 }
 
 resource "google_artifact_registry_repository_iam_binding" "ipam_container_builder" {
-  project = data.google_project.project.project_id
-  location = var.artifact_registry_location
+  project    = data.google_project.project.project_id
+  location   = var.artifact_registry_location
   repository = google_artifact_registry_repository.ipam.name
-  role = "roles/artifactregistry.writer"
+  role       = "roles/artifactregistry.writer"
   members = [
-    toset(var.artifactregistry_writers)
+    toset(var.artifact_registry_writers)
   ]
 }
 
