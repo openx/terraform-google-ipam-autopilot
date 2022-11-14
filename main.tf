@@ -47,9 +47,7 @@ resource "google_artifact_registry_repository_iam_binding" "ipam_container_build
   location   = var.artifact_registry_location
   repository = google_artifact_registry_repository.ipam.name
   role       = "roles/artifactregistry.writer"
-  members = [
-    toset(var.artifact_registry_writers)
-  ]
+  members = toset(var.artifact_registry_writers)
 }
 
 resource "google_service_account" "autopilot" {
