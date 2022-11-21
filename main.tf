@@ -50,6 +50,14 @@ resource "google_artifact_registry_repository_iam_binding" "ipam_container_build
   members    = toset(var.artifact_registry_writers)
 }
 
+resource "google_artifact_registry_repository_iam_binding" "container_consumers" {
+  project    = data.google_project.project.project_id
+  location   = var.artifact_registry_location
+  repository = google_artifact_registry_repository.ipam.name
+  role       = "roles/artifactregistry.reader"
+  members    = toset(var.artifact_registry_readers)
+}
+
 resource "google_service_account" "autopilot" {
   account_id   = "ipam-autopilot"
   display_name = "Service Account for the IPAM Autopilot"

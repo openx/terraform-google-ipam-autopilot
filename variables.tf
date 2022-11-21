@@ -29,6 +29,11 @@ variable "artifact_registry_writers" {
   default     = []
 }
 
+variable "artifact_registry_readers" {
+  description = "List of users allowed to pull container images from Artifact Registry"
+  default     = ["allUsers"]
+}
+
 variable "cloudrun_service_users" {
   description = "List of members allowed to execute IPAM Autopilot service on Cloud Run"
   default     = []

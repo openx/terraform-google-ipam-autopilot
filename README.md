@@ -27,6 +27,7 @@ The terraform module takes the following variables, you can either set them via 
 | region                     	| us-central1    	| GCP region that should contain the resources.                                                                                                              	|
 | artifact_registry_location 	| us          	| Location for the Artifact Registry location, containing the Docker container image for the IPAM Autopilot backend.                                         	|
 | artifact_registry_writers   	| []		|List of Service Accounts allowed to push container images to Artifact Registry	|
+| artifact_registry_readers   	| ["allUsers"]		|List of users allowed to pull container images from Artifact Registry	|
 | container_version          	| 2               	| Version of the container, since the container is build by the infrastructure automation, you can use this variable to trigger a new container image build. 	|
 | ipam_container_image           	| us-docker.pkg.dev/ox-ipam-autopilot/ipam-autopilot/ipam-autopilot:latest           	| Specify alternative container image to be used by Cloud Run service |
 | disable_database_migration           	| false           	| Whether the CloudRun service should automatically migrate the database |
